@@ -4,10 +4,12 @@
 - discord: Dominik V
 - email: dominik.vicha@gmail.com
 
-- 3 basic web tests in plywright library 
+### Project description 
+Its the final project of the Testing academy via Engeto. 3 basic web trest in playwright library. 
 
-- Its the final project of the Testing academy via Engeto. 
-- You need to install the Testing framework - Pytest. The official documentation is here: https://docs.pytest.org/en/stable/  
+### Requiremts ###
+- You need to install the Testing framework - Pytest.
+- The official documentation is here: https://docs.pytest.org/en/stable/  
 
 - The project has 3 basic tests on page www.engeto.cz 
 - Tests are automatizated so you dont need to click on anything just start the test. 

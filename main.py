@@ -1,6 +1,8 @@
 import pytest
 from playwright.sync_api import sync_playwright
 
+"""
+# choose the short terms courses and create the ouput file "kontrola.txt"
 def test_enngeto(page):
     page.goto("https://engeto.cz/")
 
@@ -32,4 +34,36 @@ def test_enngeto(page):
     # finally write it into the file 
     with open("kontrola.txt", mode="w", encoding="utf-8") as txt_kontrola:
         for h3 in h3_list:
-            txt_kontrola.write(h3 + "\n")                               
+            txt_kontrola.write(h3 + "\n") 
+
+"""
+
+# function for testing the FAQ question. 
+
+def test_enngeto2(page):
+    page.goto("https://engeto.cz/")
+
+    # refuse cookies 
+    btn_refuse = page.locator("#cookiescript_reject")
+    btn_refuse.click()
+    page.wait_for_timeout(2000)
+
+    faq_test = page.locator("#top-menu > li.area-faq.menu-item.menu-item-type-post_type.menu-item-object-page.children-items-type-basic > a")
+    faq_test.click()
+    page.wait_for_timeout(5000)
+
+    faq_topic_test = page.locator("body > main > div.block-filter.flex.flex-row.flex-jc-c.flex-ai-fs.flex-wrap.gap-8.gap-mobile-10.border-16 > label:nth-child(6)")
+    faq_topic_test.click()
+    page.wait_for_timeout(5000)
+
+    question_elements = page.locator("#urad-prace > div > div")
+
+    count = question_elements.count()
+    assert count > 0, "Nebyly nalezeny žádné otázky."
+    print("Otázek nalezeno:", count)                        # otázek nalezeno 1 xD 
+
+    for i in range(count):
+        question = question_elements.nth(i)
+        print(question.inner_text())
+
+

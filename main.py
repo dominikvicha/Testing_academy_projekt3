@@ -63,8 +63,7 @@ def test_enngeto2(page):
 
     count = question_elements.count()
     assert count > 0, "Nebyly nalezeny žádné otázky."
-    print("Otázek nalezeno:", count)                        # otázek nalezeno 1 xD 
-
+    
     for i in range(count):
         question = question_elements.nth(i)
         print(question.inner_text())

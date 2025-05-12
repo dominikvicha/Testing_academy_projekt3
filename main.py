@@ -38,7 +38,7 @@ def test_enngeto(page):
 
 """
 
-
+"""
 # function for testing the FAQ question. 
 
 def test_engeto2(page):
@@ -71,11 +71,11 @@ def test_engeto2(page):
         question = question_elements.nth(i)
         print(question.inner_text())
 
-
-        
-# function for finding the terms of course Python Academy 
 """
-def test_enngeto3(page):
+
+# function for finding the terms of course Python Academy 
+
+def test_engeto3(page):
     page.goto("https://engeto.cz/")
 
     # refuse cookies 
@@ -83,25 +83,31 @@ def test_enngeto3(page):
     btn_refuse.click()
     page.wait_for_timeout(2000)
 
+    # find and click on "Python Akademie box"
     test_course = page.locator("body > main > div:nth-child(9) > a:nth-child(4) > span")
     test_course.click()
     page.wait_for_timeout(5000)
 
+    # find and click on "Zobrazit termíny kurzu"
     test_show_term = page.locator("body > main > div.full-page-width.has-blue-background-color > div > div.flex.gap-50.flex-ai-c.flex-mobile-column > div.left.gap-24.gap-mobile-16.flex.flex-ai-fs.flex-ai-mobile-c.flex-column > div.flex.flex-column.gap-10 > a")
     test_show_term.click()
     page.wait_for_timeout(5000)
 
+    # find and click on Python Akademie (18.června)
     test_python_academy = page.locator("#terminy > div.has-text-lg-regular-font-size.fullwidth > div.block-dates-filter-products.flex.flex-column.gap-24 > a:nth-child(4) > div.flex.flex-mobile-column.flex-jc-sb.flex-ai-c.fullwidth.dates-filter-product__bottom > span")
     test_python_academy.click()
     page.wait_for_timeout(2000)
-
+ 
+    # find box with actual terms
     lesson_dates = page.locator("#product-12038 > div.block-columns.flex-mobile-column-r.align.wp-block-engeto-columns > div > div:nth-child(1) > div > div:nth-child(1) > div.has-text-lg-regular-font-size.fullwidth > div > div:nth-child(1)")
+    
+    # control that it finds some terms
     count = lesson_dates.count()
     assert count > 0, "Nebyly nalezeny žádné termíny kurzu."
 
+    # create list and print them into the terminal
     dates_list = []
     for i in range(count):
         date_text = lesson_dates.nth(i).inner_text().strip()
         dates_list.append(date_text)
         print(date_text)
-"""

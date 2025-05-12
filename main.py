@@ -84,7 +84,7 @@ def test_engeto3(page):
     #page.wait_for_timeout(2000)
 
     # find and click on "Python Akademie box"
-    test_course = page.locator("body > main > div:nth-child(9) > a:nth-child(4) > span")
+    test_course = page.locator("a:has(h3:has-text('Python Akademie')) >> text=Více informací")
     test_course.click()
     page.wait_for_timeout(5000)
 
@@ -103,7 +103,7 @@ def test_engeto3(page):
     
     # control that it finds some terms
     count = lesson_dates.count()
-    # assert count > 0, "Nebyly nalezeny žádné termíny kurzu."
+    assert count > 0, "Nebyly nalezeny žádné termíny kurzu."
 
     # create list and print them into the terminal
     dates_list = []

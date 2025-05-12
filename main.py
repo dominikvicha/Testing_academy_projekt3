@@ -79,9 +79,9 @@ def test_engeto3(page):
     page.goto("https://engeto.cz/")
 
     # refuse cookies 
-    btn_refuse = page.locator("#cookiescript_reject")
-    btn_refuse.click()
-    page.wait_for_timeout(2000)
+    #btn_refuse = page.locator("#cookiescript_reject")
+    #btn_refuse.click()
+    #page.wait_for_timeout(2000)
 
     # find and click on "Python Akademie box"
     test_course = page.locator("body > main > div:nth-child(9) > a:nth-child(4) > span")

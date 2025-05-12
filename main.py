@@ -56,8 +56,7 @@ def test_engeto2(page):
     page.wait_for_timeout(5000)
 
     # find and click on "úřad práce - proplácení kurzu"
-    faq_topic_test = page.locator("body > main > div.block-filter.flex.flex-row.flex-jc-c.flex-ai-fs.flex-wrap.gap-8.gap-mobile-10.border-16 > label:nth-child(6)")
-    #faq_topic_test = page.locator("label:has-text('Úřad práce – proplácení kurzu')")
+    faq_topic_test = page.locator("label >> text=Úřad práce")
     faq_topic_test.click()
     page.wait_for_timeout(5000)
 

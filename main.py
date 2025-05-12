@@ -45,18 +45,19 @@ def test_engeto2(page):
     page.goto("https://engeto.cz/")
 
     # refuse cookies 
-    btn_refuse = page.locator("#cookiescript_reject")
-    btn_refuse.click()
-    page.wait_for_timeout(5000)
+    #btn_refuse = page.locator("#cookiescript_reject")
+    #btn_refuse.click()
+    #page.wait_for_timeout(2000)
+
 
     # find FAQ click
-    faq_test_zkraceny = page.locator("nav#top-menu >> text=FAQ")
-    #faq_test = page.locator("#top-menu > li.area-faq.menu-item.menu-item-type-post_type.menu-item-object-page.children-items-type-basic > a")
-    faq_test_zkraceny.click()
+    faq_test = page.locator("li.area-faq > a")
+    faq_test.click()
     page.wait_for_timeout(5000)
 
     # find and click on "úřad práce - proplácení kurzu"
     faq_topic_test = page.locator("body > main > div.block-filter.flex.flex-row.flex-jc-c.flex-ai-fs.flex-wrap.gap-8.gap-mobile-10.border-16 > label:nth-child(6)")
+    #faq_topic_test = page.locator("label:has-text('Úřad práce – proplácení kurzu')")
     faq_topic_test.click()
     page.wait_for_timeout(5000)
 

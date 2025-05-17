@@ -95,10 +95,6 @@ def test_engeto3(page):
     page.wait_for_timeout(5000)
 
     # find and click on Python Akademie 
-    #test_python_academy = page.locator("#terminy > div.has-text-lg-regular-font-size.fullwidth > div.block-dates-filter-products.flex.flex-column.gap-24 > a:nth-child(4) > div.flex.flex-mobile-column.flex-jc-sb.flex-ai-c.fullwidth.dates-filter-product__bottom > span")
-    #test_python_academy.click()
-    #page.wait_for_timeout(2000)
-
     blocks = page.locator("#terminy a")
     count = blocks.count()
 
@@ -109,9 +105,8 @@ def test_engeto3(page):
             block.locator("text=Detail termínu").click()
             break
             
- 
     # find box with actual terms
-    lesson_dates = page.locator("#product-12038 > div.block-columns.flex-mobile-column-r.align.wp-block-engeto-columns > div > div:nth-child(1) > div > div:nth-child(1) > div.has-text-lg-regular-font-size.fullwidth > div > div:nth-child(1)")
+    lesson_dates = page.locator("div.description.has-text-lg-regular-font-size p")
     
     # control that it finds some terms
     count = lesson_dates.count()

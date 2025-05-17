@@ -78,10 +78,13 @@ def test_engeto2(page):
 def test_engeto3(page):
     page.goto("https://engeto.cz/")
 
-    # refuse cookies 
-    #btn_refuse = page.locator("#cookiescript_reject")
-    #btn_refuse.click()
-    #page.wait_for_timeout(2000)
+    # refuse cookies if they show up 
+    try:
+        btn_refuse = page.locator("#cookiescript_reject")
+        btn_refuse.click()
+        page.wait_for_timeout(2000)
+    except:
+        pass
 
     # find and click on "Python Akademie box"
     test_course = page.locator("a:has(h3:has-text('Python Akademie')) >> text=Více informací")

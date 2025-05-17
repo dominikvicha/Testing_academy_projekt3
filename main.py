@@ -89,14 +89,26 @@ def test_engeto3(page):
     page.wait_for_timeout(5000)
 
     # find and click on "Zobrazit termíny kurzu"
-    test_show_term = page.locator("body > main > div.full-page-width.has-blue-background-color > div > div.flex.gap-50.flex-ai-c.flex-mobile-column > div.left.gap-24.gap-mobile-16.flex.flex-ai-fs.flex-ai-mobile-c.flex-column > div.flex.flex-column.gap-10 > a")
+    #test_show_term = page.locator("body > main > div.full-page-width.has-blue-background-color > div > div.flex.gap-50.flex-ai-c.flex-mobile-column > div.left.gap-24.gap-mobile-16.flex.flex-ai-fs.flex-ai-mobile-c.flex-column > div.flex.flex-column.gap-10 > a")
+    test_show_term = page.locator("a:has-text('Zobrazit termíny kurzu')")
     test_show_term.click()
     page.wait_for_timeout(5000)
 
-    # find and click on Python Akademie (18.června)
-    test_python_academy = page.locator("#terminy > div.has-text-lg-regular-font-size.fullwidth > div.block-dates-filter-products.flex.flex-column.gap-24 > a:nth-child(4) > div.flex.flex-mobile-column.flex-jc-sb.flex-ai-c.fullwidth.dates-filter-product__bottom > span")
-    test_python_academy.click()
-    page.wait_for_timeout(2000)
+    # find and click on Python Akademie 
+    #test_python_academy = page.locator("#terminy > div.has-text-lg-regular-font-size.fullwidth > div.block-dates-filter-products.flex.flex-column.gap-24 > a:nth-child(4) > div.flex.flex-mobile-column.flex-jc-sb.flex-ai-c.fullwidth.dates-filter-product__bottom > span")
+    #test_python_academy.click()
+    #page.wait_for_timeout(2000)
+
+    blocks = page.locator("#terminy a")
+    count = blocks.count()
+
+    for i in range(count):
+        block = blocks.nth(i)
+        text = block.inner_text(timeout=5000)
+        if "Python Akademie" in text:
+            block.locator("text=Detail termínu").click()
+            break
+            
  
     # find box with actual terms
     lesson_dates = page.locator("#product-12038 > div.block-columns.flex-mobile-column-r.align.wp-block-engeto-columns > div > div:nth-child(1) > div > div:nth-child(1) > div.has-text-lg-regular-font-size.fullwidth > div > div:nth-child(1)")

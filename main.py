@@ -1,15 +1,18 @@
 import pytest
 from playwright.sync_api import sync_playwright
 
-"""
+
 # choose the short terms courses and create the ouput file "kontrola.txt"
 def test_enngeto(page):
     page.goto("https://engeto.cz/")
 
-    # refuse cookies 
-    btn_refuse = page.locator("#cookiescript_reject")
-    btn_refuse.click()
-    page.wait_for_timeout(2000)
+   # refuse cookies if they show up 
+    try:
+        btn_refuse = page.locator("#cookiescript_reject")
+        btn_refuse.click()
+        page.wait_for_timeout(2000)
+    except:
+        pass
 
     # click on the button "Termíny"
     testing_terms = page.locator("#main-header .main-navigation > a[href='/terminy/']")
@@ -36,19 +39,19 @@ def test_enngeto(page):
         for h3 in h3_list:
             txt_kontrola.write(h3 + "\n") 
 
-"""
 
-"""
 # function for testing the FAQ question. 
 
 def test_engeto2(page):
     page.goto("https://engeto.cz/")
 
-    # refuse cookies 
-    #btn_refuse = page.locator("#cookiescript_reject")
-    #btn_refuse.click()
-    #page.wait_for_timeout(2000)
-
+    # refuse cookies if they show up 
+    try:
+        btn_refuse = page.locator("#cookiescript_reject")
+        btn_refuse.click()
+        page.wait_for_timeout(2000)
+    except:
+        pass
 
     # find FAQ click
     faq_test = page.locator("li.area-faq > a")
@@ -70,8 +73,6 @@ def test_engeto2(page):
     for i in range(count):
         question = question_elements.nth(i)
         print(question.inner_text())
-
-"""
 
 # function for finding the terms of course Python Academy 
 
@@ -108,8 +109,11 @@ def test_engeto3(page):
             break
             
     # find box with actual terms
-    #lesson_dates = page.locator("div.description.has-text-lg-regular-font-size p")
-    lesson_dates = page.locator("#product-12038 > div.block-columns.flex-mobile-column-r.align.wp-block-engeto-columns > div > div:nth-child(1) > div > div:nth-child(1) > div.has-text-lg-regular-font-size.fullwidth > div > div:nth-child(1) > div > p:nth-child(1)")
+    terms_title = page.locator("span:has-text('Termíny lekcí')")                    # find text "Termíny lekcí"
+
+    terms_box = terms_title.locator("xpath=ancestor::div[contains(@class, 'box')]") # use xPath to find <div> with class "box"
+
+    lesson_dates = terms_box.locator("div.description p")                           # find all <p> elemets inside the div.description
     
     # control that it finds some terms
     count = lesson_dates.count()
@@ -119,5 +123,6 @@ def test_engeto3(page):
     dates_list = []
     for i in range(count):
         date_text = lesson_dates.nth(i).inner_text().strip()
-        dates_list.append(date_text)
-        print(date_text)
+        if "/" in date_text:                                                        # prints just the dates 
+            dates_list.append(date_text)
+            print(date_text)

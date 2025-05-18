@@ -14,25 +14,24 @@ def test_enngeto(page):
     except:
         pass
 
-    # click on the button "Termíny"
-    testing_terms = page.locator("#main-header .main-navigation > a[href='/terminy/']")
-    testing_terms.click()
+    # click on the button "Kurzy"
+    courses_button = page.locator("body > main > div:nth-child(1) > div > div > a")
+    courses_button.click()
     page.wait_for_timeout(2000)
-
-    # find box where are filters of courses 
-    filter_box = page.locator(".block-dates-filter__desktop")
-    page.wait_for_timeout(2000)
-
-    # find and click on the "Krátkodobé školení"
-    checkbox_short_term_courses = filter_box.locator("#type-kratkodobe-skoleni")
-    checkbox_short_term_courses.check() 
-
-    # making sure that the page is fully loaded 
-    page.wait_for_selector("text=AI od základů s Davidem Šetkem") 
 
     # finding all of the courses tittles in the short term courses 
-    h3_locator = page.locator("div.block-dates-filter-products h3.title")
-    h3_list = h3_locator.all_inner_texts()               
+    #short_courses = page.locator("section:has(h2:has-text('Krátkodobé kurzy a školení')) h3")
+    short_courses = page.locator("#kurzy_a_skoleni > div.has-text-lg-regular-font-size.fullwidth > div")
+    # zajímá mě jen nadpisy h3 class ("#kurzy_a_skoleni > div.has-text-lg-regular-font-size.fullwidth > div > a:nth-child(2) > h3")
+    
+    
+    count = short_courses.count()
+    assert count > 0, "Nebyly nalezeny žádné kurzy."
+
+    h3_list = []
+    for i in range(count):
+        h3_list.append(short_courses.nth(i).inner_text().strip())
+        print(h3_list)
 
     # finally write it into the file 
     with open("kontrola.txt", mode="w", encoding="utf-8") as txt_kontrola:
@@ -40,6 +39,7 @@ def test_enngeto(page):
             txt_kontrola.write(h3 + "\n") 
 
 
+"""
 # function for testing the FAQ question. 
 
 def test_engeto2(page):
@@ -126,3 +126,5 @@ def test_engeto3(page):
         if "/" in date_text:                                                        # prints just the dates 
             dates_list.append(date_text)
             print(date_text)
+
+"""

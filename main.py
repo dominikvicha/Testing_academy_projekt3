@@ -92,7 +92,6 @@ def test_engeto3(page):
     page.wait_for_timeout(5000)
 
     # find and click on "Zobrazit termíny kurzu"
-    #test_show_term = page.locator("body > main > div.full-page-width.has-blue-background-color > div > div.flex.gap-50.flex-ai-c.flex-mobile-column > div.left.gap-24.gap-mobile-16.flex.flex-ai-fs.flex-ai-mobile-c.flex-column > div.flex.flex-column.gap-10 > a")
     test_show_term = page.locator("a:has-text('Zobrazit termíny kurzu')")
     test_show_term.click()
     page.wait_for_timeout(5000)
@@ -109,7 +108,8 @@ def test_engeto3(page):
             break
             
     # find box with actual terms
-    lesson_dates = page.locator("div.description.has-text-lg-regular-font-size p")
+    #lesson_dates = page.locator("div.description.has-text-lg-regular-font-size p")
+    lesson_dates = page.locator("#product-12038 > div.block-columns.flex-mobile-column-r.align.wp-block-engeto-columns > div > div:nth-child(1) > div > div:nth-child(1) > div.has-text-lg-regular-font-size.fullwidth > div > div:nth-child(1) > div > p:nth-child(1)")
     
     # control that it finds some terms
     count = lesson_dates.count()

@@ -1,3 +1,5 @@
+Krátkodobé kurzy a školení na 1–3 dny, když potřebuješ nové znalosti získat rychle a efektivně. Pro začátečníky i pokročilé, celodenní formát s důrazem na praktické dovednosti. Podpora lektora, studijní skupina na Discordu.
+
 Úvod do programování v Pythonu
 Nauč se základy Pythonu během intenzivního 3denního kurzu. Ideální start pro začátečníky.
 Boolean

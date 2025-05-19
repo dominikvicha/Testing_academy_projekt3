@@ -4,34 +4,29 @@ from playwright.sync_api import sync_playwright
 
 # choose the short terms courses and create the ouput file "kontrola.txt"
 def test_enngeto(page):
-    page.goto("https://engeto.cz/")
+    page.goto("https://engeto.cz/prehled-kurzu/")
 
    # refuse cookies if they show up 
     try:
         btn_refuse = page.locator("#cookiescript_reject")
         btn_refuse.click()
-        page.wait_for_timeout(2000)
+        #page.wait_for_timeout(2000)
     except:
         pass
 
-    # click on the button "Kurzy"
-    courses_button = page.locator("body > main > div:nth-child(1) > div > div > a")
-    courses_button.click()
-    page.wait_for_timeout(2000)
-
+    page.wait_for_selector("text=Krátkodobé kurzy a školení")
     # finding all of the courses tittles in the short term courses 
-    #short_courses = page.locator("section:has(h2:has-text('Krátkodobé kurzy a školení')) h3")
-    short_courses = page.locator("#kurzy_a_skoleni > div.has-text-lg-regular-font-size.fullwidth > div")
-    # zajímá mě jen nadpisy h3 class ("#kurzy_a_skoleni > div.has-text-lg-regular-font-size.fullwidth > div > a:nth-child(2) > h3")
-    
-    
+    short_courses = page.locator("section:has(h2:has-text('Krátkodobé kurzy a školení')) h3")
+    print(short_courses.inner_html())
+
     count = short_courses.count()
     assert count > 0, "Nebyly nalezeny žádné kurzy."
 
     h3_list = []
     for i in range(count):
-        h3_list.append(short_courses.nth(i).inner_text().strip())
-        print(h3_list)
+        course_tittle = short_courses.nth(i).inner_text().strip()
+        h3_list.append(course_tittle)
+        print(course_tittle)
 
     # finally write it into the file 
     with open("kontrola.txt", mode="w", encoding="utf-8") as txt_kontrola:

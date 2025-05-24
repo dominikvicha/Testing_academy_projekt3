@@ -14,9 +14,14 @@ def test_enngeto(page):
     except:
         pass
 
-    page.wait_for_selector("text=Krátkodobé kurzy a školení")
+    page.locator("div.course-box").first.wait_for(timeout=20000)
+
+    page.locator("h2:has-text('Krátkodobé kurzy a školení')").scroll_into_view_if_needed()
+    page.wait_for_selector("h2:has-text('Krátkodobé kurzy a školení')")
+    
+    
     # finding all of the courses tittles in the short term courses 
-    short_courses = page.locator("div.container:has(h2:has-text('Krátkodobé kurzy a školení')) h3")
+    short_courses = page.locator("section:has(h2:has-text('Krátkodobé kurzy a školení')) h3")
     print(short_courses.inner_html())
 
     count = short_courses.count()

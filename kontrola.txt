@@ -1,102 +1,12 @@
-Krátkodobé kurzy a školení na 1–3 dny, když potřebuješ nové znalosti získat rychle a efektivně. Pro začátečníky i pokročilé, celodenní formát s důrazem na praktické dovednosti. Podpora lektora, studijní skupina na Discordu.
-
 Úvod do programování v Pythonu
-Nauč se základy Pythonu během intenzivního 3denního kurzu. Ideální start pro začátečníky.
-Boolean
-Podmínky
-Smyčky
-Funkce
-Více informací
 Pandas + NumPy
-Nauč se efektivně pracovat s daty, analyzovat je a získávat užitečné výsledky.
-Objekty
-Vizualizace
-Pivot tabulky
-Numerika
-Knihovny
-Více informací
 Python OOP
-Ovládni koncepty objektově orientovaného programování v Pythonu a získej tak klíčovou dovednost pro tvorbu přehledného kódu.
-Metody
-Třída
-Instance
-GraphQL
-REST API
-Web aplikace
-Více informací
 Power BI
-Nauč se používat důležitý nástroj pro datové analytiky. Dokážeš vizualizovat a analyzovat data v interaktivních dashboardech.
-Datové typy
-Vizualizace
-Hierarchie
-DAX
-Podmíněné formátování
-Více informací
 Excel pro začátečníky
-Zvládni Excel od základů až po pokročilé funkce. Naučíš se vzorce, propojení tabulek, kontingenční tabulky a vizualizaci dat.
-Vzorce a funkce
-Vizualizace dat
-Marka
-Adresace
-Spojování dat
-Více informací
 Excel pro pokročilé
-Posuň práci v Excelu na vyšší úroveň – nauč se Power Query, pokročilou analýzu dat a praktické tipy z reálných scénářů.
-Ganttův diagram
-BMI tabulka
-Grafy
-Kontingenční tabulky
-Více informací
 Úvod do testování softwaru
-Seznam se se základy testování softwaru a nauč se, jak identifikovat chyby a zlepšit kvalitu aplikací. Ideální start pro budoucí testery.
-Bug
-Featura
-Agile
-Waterfall
-API
-JIRA
-HTTP metody
-Více informací
 Testování v Pythonu
-Nauč se testovat software efektivně. Zvládneš práci s Postmanem, automatizované testování v Pythonu a framework Playwright.
-Python
-Automatizace
-Postman
-Playwright
-Operandy, podmínky
-API
-Více informací
 Úvod do SQL
-Ovládni základy SQL! Naučíš se psát dotazy, pracovat s databázemi a zefektivnit svoji práci díky praktickým tipům.
-SQL
-Databáze
-Spojování dat
-Chat GPT
-Funkce
-Více informací
 Úvod do Javy
-Nauč se základy Javy během intenzivního kurzu. Java je jedním z nejoblíbenějších programovacích jazyků.
-Proměnné a datové typy
-Třídy
-Objekty
-Podmínky
-Cykly
-Pole
-Kolekce
-Více informací
 AI od základů
-David Šetek tě naučí klíčové základy umělé inteligence a ukáže ti, jak z AI vytěžit maximum. Zjisti, co všechno pro tebe – a za tebe – může AI dělat.
-ChatGPT
-NotebookLM
-Google Apps Script
-Perplexity
-Google AI Studio
-Více informací
 AI workshop
-Přeskakujeme teorii! V tomto pokročilejším kurzu se Sarou Polak ihned skočíš do reálných scénářů a v minihackathonu navrhneš vlastní AI řešení.
-ChatGPT
-Notion AI
-Google Sheets/Scripts
-Minihackathon
-Grok 3
-Více informací

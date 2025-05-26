@@ -3,7 +3,7 @@ from playwright.sync_api import sync_playwright
 
 
 # choose the short terms courses and create the ouput file "kontrola.txt"
-def test_enngeto(page):
+def test_engeto(page):
     page.goto("https://engeto.cz/prehled-kurzu/")
 
    # refuse cookies if they show up 
@@ -14,11 +14,7 @@ def test_enngeto(page):
     except:
         pass
 
-    page.locator("div.course-box").first.wait_for(timeout=20000)
-
-    page.locator("h2:has-text('Krátkodobé kurzy a školení')").scroll_into_view_if_needed()
     page.wait_for_selector("h2:has-text('Krátkodobé kurzy a školení')")
-    
     
     # finding all of the courses tittles in the short term courses 
     short_courses = page.locator("section:has(h2:has-text('Krátkodobé kurzy a školení')) h3")

@@ -21,7 +21,7 @@ def test_engeto(page):
     short_courses = page.locator("#kurzy_a_skoleni > div.has-text-lg-regular-font-size.fullwidth > div h3")
     
     
-    # 25-28 control if the locator is ok, dont need to be used
+    # line 25-28 control if the locator is ok, dont need to be used
     # count = short_courses.count()
     # print("počet nalezených kurzů:", count)
     # print("První kurz:", short_courses.nth(0).inner_text())
@@ -41,7 +41,7 @@ def test_engeto(page):
             txt_kontrola.write(h3 + "\n") 
 
 
-"""
+
 # function for testing the FAQ question. 
 
 def test_engeto2(page):
@@ -75,6 +75,8 @@ def test_engeto2(page):
     for i in range(count):
         question = question_elements.nth(i)
         print(question.inner_text())
+
+
 
 # function for finding the terms of course Python Academy 
 
@@ -129,4 +131,3 @@ def test_engeto3(page):
             dates_list.append(date_text)
             print(date_text)
 
-"""

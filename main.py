@@ -14,12 +14,18 @@ def test_engeto(page):
     except:
         pass
 
-    page.wait_for_selector("h2:has-text('Krátkodobé kurzy a školení')")
+    box_courses = page.locator("#kurzy_a_skoleni > div.has-text-lg-regular-font-size.fullwidth > div")
+    box_courses.wait_for(state="visible", timeout=5000)
     
     # finding all of the courses tittles in the short term courses 
-    short_courses = page.locator("section:has(h2:has-text('Krátkodobé kurzy a školení')) h3")
-    print(short_courses.inner_html())
-
+    short_courses = page.locator("#kurzy_a_skoleni > div.has-text-lg-regular-font-size.fullwidth > div h3")
+    
+    
+    # 25-28 control if the locator is ok, dont need to be used
+    # count = short_courses.count()
+    # print("počet nalezených kurzů:", count)
+    # print("První kurz:", short_courses.nth(0).inner_text())
+    
     count = short_courses.count()
     assert count > 0, "Nebyly nalezeny žádné kurzy."
 
